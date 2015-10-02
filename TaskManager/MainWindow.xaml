@@ -1,0 +1,46 @@
+﻿<Window x:Class="TaskManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:TaskManager.ViewModel"
+        xmlns:vw="clr-namespace:TaskManager.View"
+        Title="Task Manager" Height="570" Width="300"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+        Background="Transparent"
+        MouseDown="Window_MouseDown">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:ButtonCloseViewModel}">
+            <vw:ButtonClose />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SearchBoxViewModel}">
+            <vw:SearchTextBox />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ProcessListViewModel}">
+            <vw:ProcessesListView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ProgressBarRamViewModel}">
+            <vw:ProgressBarRam />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ProgressBarCpuViewModel}">
+            <vw:ProgressBarCpu />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SliderViewModel}">
+            <vw:Slider />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ButtonSnapShotViewModel}">
+            <vw:ButtonSnapShot />
+        </DataTemplate>
+        
+        
+    </Window.Resources>
+    
+    
+    <Grid>
+        <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="5" CornerRadius="30" Margin="0" Padding="0">
+            <ItemsControl ItemsSource="{Binding ViewModels}" Margin="0,-2,0,2" />
+            
+        </Border>
+        
+    </Grid>
+</Window>
