@@ -32,7 +32,8 @@ namespace TaskManager.ViewModel
         // Methods
         void _timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            AvailableRam = _ramCounter.NextValue();
+            if(_ramCounter != null)
+                AvailableRam = _ramCounter.NextValue();
         }    
 
         // Constructors
